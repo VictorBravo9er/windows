@@ -562,7 +562,7 @@ downloadFile() {
 
   info "$msg..."
 
-  { wget "$url" -O "$iso" -q --timeout=30 --no-http-keep-alive --user-agent "$agent" --show-progress "$progress"; rc=$?; } || :
+  { axel -n 8 -a -o "$iso" -T 30 -U "$agent" "$url"; rc=$?; } || :
 
   fKill "progress.sh"
 
