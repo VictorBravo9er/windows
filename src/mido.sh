@@ -542,13 +542,6 @@ downloadFile() {
     (( size > space )) && error "Not enough free space to download file, only $total_gb left!" && return 1
   fi
 
-  # Check if running with interactive TTY or redirected to docker log
-  if [ -t 1 ]; then
-    progress="--progress=bar:noscroll"
-  else
-    progress="--progress=dot:giga"
-  fi
-
   html "$msg..."
   /run/progress.sh "$iso" "$size" "$msg ([P])..." &
 
