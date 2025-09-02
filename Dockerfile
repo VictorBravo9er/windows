@@ -16,6 +16,8 @@ RUN set -eu && \
         wimtools \
         dos2unix \
         cabextract \
+        libssl3 \
+        axel \
         libxml2-utils \
         libarchive-tools \
         netcat-openbsd && \
